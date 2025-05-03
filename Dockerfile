@@ -4,8 +4,11 @@ FROM openjdk:17-jdk-slim
 # Set working directory
 WORKDIR /app
 
-# Copy everything to container
+# Copy everything
 COPY . .
+
+# ✅ Make mvnw executable
+RUN chmod +x mvnw
 
 # Build the app
 RUN ./mvnw clean package -DskipTests
